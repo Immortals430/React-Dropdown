@@ -1,5 +1,4 @@
 *{
- 
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -13,10 +12,12 @@ h1{
 } 
 
 section{
+    min-width: 307px;
     width: 30vw;
-    height: 350px;
+    min-height: 395px;
     background-color: aquamarine;
-    margin: 15vh auto;
+    margin: auto;
+    margin-top: 64px;
     padding: 2rem;
 }
 
@@ -30,8 +31,7 @@ section{
 
 section > div{
     margin: 1rem auto;
-    padding: 1rem;
-    
+    padding: 1rem;    
 }
 
 h2{
@@ -39,17 +39,17 @@ h2{
     font-family: sans-serif;
 }
 
-.dropDown{
+.dropdown{
     background-color: white;
     width: 60%;
     flex-flow: column;
 }
 
-.dropDown > p{
+.dropdown > p{
     padding: 0.5rem;
     cursor: pointer;
 }
 
-.fa-angle-right{
+.angle-right{
     transition: transform 0.2s linear;
 }

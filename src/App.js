@@ -1,25 +1,26 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { RiArrowDropRightLine } from "react-icons/ri";
 
 function App() {
-  const dropDown = useRef()
-  const input = useRef()
-  const arrow = useRef()
-  const arr = ['Yes', 'Probably Not']
+  
+  const dropDown = useRef();
+  const input = useRef();
+  const arr = ['Yes', 'Probably Not'];
+  const [transform, setTransform] = useState('rotate(0deg)');
 
 
   // show dropdown menu
   function showDropDown(){
-    dropDown.current.style.display = "block"
-    arrow.current.style.transform = 'rotate(90deg)';
+    dropDown.current.style.display = "block";
+    setTransform('rotate(90deg)');
   }
 
   // hide dropdown menu
   function hideDropDown(value){
-    dropDown.current.style.display = "none"
-    input.current.innerText = value
-    arrow.current.style.transform = 'rotate(0deg)';
+    dropDown.current.style.display = "none";
+    input.current.innerText = value;
+    setTransform('rotate(0deg)');
   }
-
 
   return (
     <>
@@ -29,10 +30,11 @@ function App() {
       {/* Dropdown Input */}
       <div className="flex select" onMouseOver={showDropDown}>
           <span ref={input}>Select</span>
-          <i ref={arrow} className="fa fa-angle-right"></i>
+          <RiArrowDropRightLine className="angle-right" style={{transform}} size={25}/>
+      
       </div>
-      {/* Dropdown Meun */}
-      <div className="dropDown flex" ref={dropDown} style={{display: 'none'}}>
+      {/* Dropdown Menu */}
+      <div className="dropdown flex" ref={dropDown} style={{display: 'none'}}>
         {arr.map((value, i)=> (
           <p onClick={() => hideDropDown(value)} key={i}>{value}</p>
         ))}
